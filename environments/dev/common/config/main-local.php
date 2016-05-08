@@ -8,6 +8,12 @@ return [
             'password' => 'root',
             'charset' => 'utf8',
         ],
+        'sphinx' => [
+            'class' => 'yii\sphinx\Connection',
+            'dsn' => 'mysql:host=127.0.0.1;port=9306;',
+            'username' => 'root',
+            'password' => 'root',
+        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
