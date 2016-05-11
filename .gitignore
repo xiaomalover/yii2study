@@ -31,3 +31,6 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+
+#sublime sftp
+/sftp-config.json
