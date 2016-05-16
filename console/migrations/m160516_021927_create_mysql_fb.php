@@ -21,7 +21,7 @@ class m160516_021927_create_mysql_fb extends Migration
     {
         $unions = '';
         //Create sub table
-        for($i=1; $i<=$this->count; $i++) {
+        for ($i = 1; $i <= $this->count; $i++) {
             $this->createTable("{{%user_$i}}", [
                 'id' => $this->primaryKey(),
                 'name' => $this->string(50),
@@ -35,12 +35,12 @@ class m160516_021927_create_mysql_fb extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string(50),
             'sex' => $this->smallInteger()->notNull()->defaultValue(0),
-            ], "ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8
+        ], "ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8
             UNION=($unions) AUTO_INCREMENT=1"
         );
 
         //Insert some test data
-        for ($i=1; $i<=$this->count; $i++) {
+        for ($i = 1; $i <= $this->count; $i++) {
             $this->execute("INSERT INTO {{%user_$i}} VALUES('', 'name$i', $i%2)");
         }
     }
@@ -51,7 +51,7 @@ class m160516_021927_create_mysql_fb extends Migration
     public function down()
     {
         //Drop sub table
-        for ($i=1; $i<=$this->count; $i++) {
+        for ($i = 1; $i <= $this->count; $i++) {
             $this->dropTable("{{%user_$i}}");
         }
         //Drop union table
