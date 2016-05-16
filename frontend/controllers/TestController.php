@@ -35,11 +35,11 @@ class TestController extends Controller
         $query = new Query();
         $list = $query->select('*')
             ->from('test1')
-            // ->limit(500000000)
-            ->match('my')
-            // ->showMeta(true)
-            // ->search();
-            ->all();
+            ->limit(500000000)
+            ->match('one')
+            ->showMeta(true)
+            ->search();
+            // ->all();
         print_r($list);
         // return $this->render('index', compact('list'));
     }
