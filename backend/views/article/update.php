@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\SphinxTestDocument */
+/* @var $model common\models\Article */
 
-$this->title = 'Update Sphinx Test Document: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Sphinx Test Documents', 'url' => ['index']];
+$this->title = 'Update Article: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="sphinx-test-document-update">
+<div class="article-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

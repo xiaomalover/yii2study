@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\SphinxTestDocument */
+/* @var $model common\models\Article */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Sphinx Test Documents', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="sphinx-test-document-view">
+<div class="article-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,11 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'group_id',
-            'group_id2',
-            'date_added',
+            'slug',
             'title',
-            'content:ntext',
+            'body:ntext',
+            'view',
+            'category_id',
+            'thumb',
+            'author_id',
+            'updater_id',
+            'status',
+            'published_at',
+            'created_at',
+            'updated_at',
         ],
     ]) ?>
 

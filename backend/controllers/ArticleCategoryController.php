@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\SphinxTestDocument;
-use backend\models\SphinxTestDocumentSearch;
+use common\models\ArticleCategory;
+use backend\models\ArticleCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SphinxTestController implements the CRUD actions for SphinxTestDocument model.
+ * ArticleCategoryController implements the CRUD actions for ArticleCategory model.
  */
-class SphinxTestController extends Controller
+class ArticleCategoryController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class SphinxTestController extends Controller
     }
 
     /**
-     * Lists all SphinxTestDocument models.
+     * Lists all ArticleCategory models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SphinxTestDocumentSearch();
+        $searchModel = new ArticleCategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class SphinxTestController extends Controller
     }
 
     /**
-     * Displays a single SphinxTestDocument model.
+     * Displays a single ArticleCategory model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class SphinxTestController extends Controller
     }
 
     /**
-     * Creates a new SphinxTestDocument model.
+     * Creates a new ArticleCategory model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SphinxTestDocument();
+        $model = new ArticleCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class SphinxTestController extends Controller
     }
 
     /**
-     * Updates an existing SphinxTestDocument model.
+     * Updates an existing ArticleCategory model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class SphinxTestController extends Controller
     }
 
     /**
-     * Deletes an existing SphinxTestDocument model.
+     * Deletes an existing ArticleCategory model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class SphinxTestController extends Controller
     }
 
     /**
-     * Finds the SphinxTestDocument model based on its primary key value.
+     * Finds the ArticleCategory model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SphinxTestDocument the loaded model
+     * @return ArticleCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SphinxTestDocument::findOne($id)) !== null) {
+        if (($model = ArticleCategory::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -29,5 +29,17 @@ return [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
+        'fileStorage' => [
+            'class' => '\trntv\filekit\Storage',
+            'baseUrl' => 'http://storage.study.com/uploads',
+            'filesystem' => [
+                'class' => 'common\components\filesystem\LocalFlysystemBuilder',
+                'path' => '@storage/uploads'
+            ],
+            'as log' => [
+                'class' => 'common\behaviors\FileStorageLogBehavior',
+                'component' => 'fileStorage'
+            ]
+        ],
     ],
 ];

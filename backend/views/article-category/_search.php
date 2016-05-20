@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\SphinxTestDocumentSearch */
+/* @var $model backend\models\ArticleCategorySearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="sphinx-test-document-search">
+<div class="article-category-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,15 +17,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'group_id') ?>
-
-    <?= $form->field($model, 'group_id2') ?>
-
-    <?= $form->field($model, 'date_added') ?>
+    <?= $form->field($model, 'slug') ?>
 
     <?= $form->field($model, 'title') ?>
 
-    <?php // echo $form->field($model, 'content') ?>
+    <?= $form->field($model, 'body') ?>
+
+    <?= $form->field($model, 'parent_id') ?>
+
+    <?php // echo $form->field($model, 'status') ?>
+
+    <?php // echo $form->field($model, 'created_at') ?>
+
+    <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

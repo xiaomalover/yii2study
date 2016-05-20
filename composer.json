@@ -18,7 +18,10 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "yiisoft/yii2-sphinx": "~2.0.0"
+        "yiisoft/yii2-sphinx": "~2.0.0",
+        "weison-tech/yii2-imperavi-widget": "*",
+        "weison-tech/yii2-file-kit": "@stable",
+        "weison-tech/yii2-scroll-pager": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

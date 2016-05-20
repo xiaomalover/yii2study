@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 
 /**
@@ -16,6 +17,8 @@ use Yii;
  */
 class SphinxTestDocument extends \yii\db\ActiveRecord
 {
+    public $thumb_img;
+
     /**
      * @inheritdoc
      */
@@ -33,8 +36,25 @@ class SphinxTestDocument extends \yii\db\ActiveRecord
             [['group_id', 'group_id2', 'date_added', 'title', 'content'], 'required'],
             [['group_id', 'group_id2'], 'integer'],
             [['date_added'], 'safe'],
-            [['content'], 'string'],
+            [['content', 'thumb'], 'string'],
             [['title'], 'string', 'max' => 255],
+            [['thumb_img'], 'safe'],
+        ];
+    }
+
+    /**
+     * When use yii2-file-kit to upload
+     * file folowing behavior should been added
+     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'thumb_img',
+                'pathAttribute' => 'thumb',
+                'baseUrlAttribute' => false,
+            ],
         ];
     }
 

@@ -34,3 +34,6 @@ phpunit.phar
 
 #sublime sftp
 /sftp-config.json
+#tags file
+.tags_sorted_by_file
+.tags

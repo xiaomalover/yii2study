@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\SphinxTestDocument;
+use common\models\ArticleCategory;
 
 /**
- * SphinxTestDocumentSearch represents the model behind the search form about `common\models\SphinxTestDocument`.
+ * ArticleCategorySearch represents the model behind the search form about `common\models\ArticleCategory`.
  */
-class SphinxTestDocumentSearch extends SphinxTestDocument
+class ArticleCategorySearch extends ArticleCategory
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class SphinxTestDocumentSearch extends SphinxTestDocument
     public function rules()
     {
         return [
-            [['id', 'group_id', 'group_id2'], 'integer'],
-            [['date_added', 'title', 'content'], 'safe'],
+            [['id', 'parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['slug', 'title', 'body'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class SphinxTestDocumentSearch extends SphinxTestDocument
      */
     public function search($params)
     {
-        $query = SphinxTestDocument::find();
+        $query = ArticleCategory::find();
 
         // add conditions that should always apply here
 
@@ -60,13 +60,15 @@ class SphinxTestDocumentSearch extends SphinxTestDocument
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'group_id' => $this->group_id,
-            'group_id2' => $this->group_id2,
-            'date_added' => $this->date_added,
+            'parent_id' => $this->parent_id,
+            'status' => $this->status,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'content', $this->content]);
+        $query->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'body', $this->body]);
 
         return $dataProvider;
     }
